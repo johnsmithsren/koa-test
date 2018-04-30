@@ -16,4 +16,11 @@ router.get('/json', async (ctx, next) => {
   }
 })
 
+
+router.post('/hello', async (ctx, next) => {
+  ctx.body = {
+    msg: 'this is koa response'
+  }
+})
+
 module.exports = router
