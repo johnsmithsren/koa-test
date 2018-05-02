@@ -5,7 +5,7 @@
 'use strict';
 const _ = require('lodash');
 const db_query = require('../model/db')
-
+const util = require('utility')
 module.exports = class user_model {
 
     constructor() {
@@ -14,10 +14,19 @@ module.exports = class user_model {
 
     /**
      * 创建用户
-     * @param {*} info         用户详细信息
+     * @param {*} user_info         用户详细信息
      */
-    create_user(info) {
-
+    async create_user(user_info) {
+        _user = {
+            user_name: user_info.name,
+            nick_name: user_info.nick_name,
+            email: user_info.emial,
+            mobile: user_info.mobile,
+            unique_id: user_info.unique_id,
+            create_time: util.timestamp(),
+            password: util.md5(user_info.password + create_time)
+        }
+        return await db_query.query('insert into user set create_time=unix_timestamp(now()), ?', [_user])
     }
 
     /**
@@ -25,7 +34,7 @@ module.exports = class user_model {
      * @param {*} user_unique_id    用户ID
      */
     async get_user(unique_id) {
-        const info = await db_query.query('select id,nick_name from user where id = ?', ['1'])
+        const info = await db_query.query('select id,nick_name from user where id = ?', [unique_id])
         return info
     }
 

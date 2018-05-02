@@ -6,8 +6,10 @@ const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const cors = require('koa-cors');
-const index = require('./routes/index')
-const users = require('./routes/users')
+const fs = require('fs');
+
+// const index = require('./routes/index')
+const user = require('./routes/user')
 
 // error handler
 onerror(app)
@@ -33,9 +35,12 @@ app.use(async (ctx, next) => {
 })
 app.use(cors())
 // routes
-app.use(index.routes(), index.allowedMethods())
-app.use(users.routes(), users.allowedMethods())
-
+fs.readdirSync(__dirname + '/routes').forEach((file) => {
+  if (/(\.js)$/.test(file)) {
+    const route = require(__dirname + '/routes/' + file)
+    app.use(route.routes())
+  }
+});
 // error-handling
 app.on('error', (err, ctx) => {
   console.error('server error', err, ctx)

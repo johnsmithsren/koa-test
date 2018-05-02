@@ -23,13 +23,6 @@ router.post('/hello', async (ctx, next) => {
   }
 })
 
-router.get('/user', async (ctx, next) => {
-  let user = new user_controller();
-  result = await user.get_user('1')
-  ctx.body = {
-    msg: result
-  }
-})
 
 
 module.exports = router

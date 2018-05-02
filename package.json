@@ -20,8 +20,11 @@
     "koa-router": "^7.1.1",
     "koa-static": "^3.0.0",
     "koa-views": "^5.2.1",
+    "lodash": "^4.17.10",
     "mysql": "^2.15.0",
-    "pug": "^2.0.0-rc.1"
+    "pug": "^2.0.0-rc.1",
+    "utility": "^1.13.1",
+    "uuid": "^3.2.1"
   },
   "devDependencies": {
     "nodemon": "^1.8.1"

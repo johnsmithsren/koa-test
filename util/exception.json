@@ -1,0 +1,612 @@
+{
+    "LoginFailed": {
+        "code": 1,
+        "message": "LoginFailed",
+        "zh_CN": "登录失败"
+    },
+    "NeedLogin": {
+        "code": 2,
+        "message": "NeedLogin",
+        "zh_CN": "需要登录"
+    },
+    "MessageNotFound": {
+        "code": 3,
+        "message": "MessageNotFound",
+        "zh_CN": "消息未找到"
+    },
+    "FileUploadFailed": {
+        "code": 4,
+        "message": "FileUploadFailed",
+        "zh_CN": "文件上传失败"
+    },
+    "ArchitectCreateFailed": {
+        "code": 5,
+        "message": "ArchitectCreateFailed",
+        "zh_CN": "工程师创建失败"
+    },
+    "UserCreateFailed": {
+        "code": 6,
+        "message": "UserCreateFailed",
+        "zh_CN": "用户注册失败"
+    },
+    "MessageCreateFailed": {
+        "code": 7,
+        "message": "MessageCreateFailed",
+        "zh_CN": "消息创建失败"
+    },
+    "UserNotFound": {
+        "code": 8,
+        "message": "UserNotFound",
+        "zh_CN": "用户未找到"
+    },
+    "UserUpdateFailed": {
+        "code": 9,
+        "message": "UserUpdateFailed",
+        "zh_CN": "用户信息更新失败"
+    },
+    "ArchitectReplaceFailed": {
+        "code": 10,
+        "message": "ArchitectReplaceFailed",
+        "zh_CN": "工程师更换失败"
+    },
+    "ChangePasswordFailed": {
+        "code": 11,
+        "message": "ChangePasswordFailed",
+        "zh_CN": "密码更新失败"
+    },
+    "ArchitectNotFound": {
+        "code": 12,
+        "message": "ArchitectNotFound",
+        "zh_CN": "工程师未找到"
+    },
+    "ResetPasswordFailed": {
+        "code": 13,
+        "message": "ResetPasswordFailed",
+        "zh_CN": "密码重置失败"
+    },
+    "CloudSandboxError": {
+        "code": 14,
+        "message": "CloudSandboxError",
+        "zh_CN": "云中沙箱内部错误"
+    },
+    "AppNotFound": {
+        "code": 15,
+        "message": "AppNotFound",
+        "zh_CN": "服务产品未找到"
+    },
+    "InvalidVerifyCode": {
+        "code": 16,
+        "message": "InvalidVerifyCode",
+        "zh_CN": "验证码不合格"
+    },
+    "InvalidMobile": {
+        "code": 17,
+        "message": "InvalidMobile",
+        "zh_CN": "手机号不合法"
+    },
+    "IntervalTooShort": {
+        "code": 18,
+        "message": "IntervalTooShort",
+        "zh_CN": "验证码间隔时间过短"
+    },
+    "MobileExists": {
+        "code": 19,
+        "message": "MobileExists",
+        "zh_CN": "该用户已存在！"
+    },
+    "EcamsError": {
+        "code": 20,
+        "message": "EcamsError",
+        "zh_CN": "ECAMS 内部错误"
+    },
+    "CsosError": {
+        "code": 21,
+        "message": "CsosError",
+        "zh_CN": "CSOS 内部错误"
+    },
+    "InvalidParameter": {
+        "code": 22,
+        "message": "InvalidParameter",
+        "zh_CN": "参数不合法"
+    },
+    "DuplicateEmail": {
+        "code": 23,
+        "message": "DuplicateEmail",
+        "zh_CN": "当前邮箱已注册"
+    },
+    "DuplicateCompanyName": {
+        "code": 24,
+        "message": "DuplicateCompanyName",
+        "zh_CN": "当前公司已注册"
+    },
+    "InvalidUserToken": {
+        "code": 25,
+        "message": "InvalidUserToken",
+        "zh_CN": "用户令牌不合法"
+    },
+    "InvalidEventSourceToken": {
+        "code": 26,
+        "message": "InvalidEventSourceToken",
+        "zh_CN": "事件令牌不合法"
+    },
+    "EventSourceNotFound": {
+        "code": 27,
+        "message": "EventSourceNotFound",
+        "zh_CN": "事件资源未找到"
+    },
+    "EventNotFound": {
+        "code": 28,
+        "message": "EventNotFound",
+        "zh_CN": "当前事件未找到"
+    },
+    "NeedMobileVerify": {
+        "code": 29,
+        "message": "NeedMobileVerify",
+        "zh_CN": "需要手机验证"
+    },
+    "JiagouyunError": {
+        "code": 30,
+        "message": "JiagouyunError",
+        "zh_CN": "架构云内部错误"
+    },
+    "InvalidToken": {
+        "code": 31,
+        "message": "InvalidToken",
+        "zh_CN": "令牌失效"
+    },
+    "AcceessTokenExpired": {
+        "code": 32,
+        "message": "AcceessTokenExpired",
+        "zh_CN": "登录令牌超时失效"
+    },
+    "ITCloudLabError": {
+        "code": 33,
+        "message": "ITCloudLabError",
+        "zh_CN": "ITC内部错误"
+    },
+    "UserAppNotFound": {
+        "code": 34,
+        "message": "UserAppNotFound",
+        "zh_CN": "用户APP未找到"
+    },
+    "RefreshTokenNotExists": {
+        "code": 35,
+        "message": "RefreshTokenNotExists",
+        "zh_CN": "刷新凭证不存在"
+    },
+    "CaptchaExpired": {
+        "code": 36,
+        "message": "CaptchaExpired",
+        "zh_CN": "验证码超时失效"
+    },
+    "CaptchaIncorrect": {
+        "code": 37,
+        "message": "CaptchaIncorrect",
+        "zh_CN": "验证码不正确"
+    },
+    "UserNotModify": {
+        "code": 38,
+        "message": "UserNotExist",
+        "zh_CN": "用户不存在"
+    },
+    "MessageMarkerNotFound": {
+        "code": 39,
+        "message": "MessageMarkerNotFound",
+        "zh_CN": "系统信息未找到"
+    },
+    "SubuserDontExist": {
+        "code": 40,
+        "message": "SubuserDontExist",
+        "zh_CN": "子账号不存在"
+    },
+    "PermissionDontExist": {
+        "code": 41,
+        "message": "PermissionDontExist",
+        "zh_CN": "当前权限未配置"
+    },
+    "UserNotAllowed": {
+        "code": 42,
+        "message": "UserNotAllowed",
+        "zh_CN": "当前用户权限不足"
+    },
+    "PermissionExist": {
+        "code": 43,
+        "message": "Permission already exist",
+        "zh_CN": "权限已配置"
+    },
+    "PermissionNotAllowed": {
+        "code": 44,
+        "message": "Permission not allowed",
+        "zh_CN": "当前账户没有权限"
+    },
+    "SyncResourceError": {
+        "code": 45,
+        "message": "sync resource error.",
+        "zh_CN": "同步资源失败"
+    },
+    "CloudAccountDontModify": {
+        "code": 46,
+        "message": "This cloudaccount number do not match exist cloudaccount number.",
+        "zh_CN": "当前云账号不匹配"
+    },
+    "ListAccountFailed": {
+        "code": 47,
+        "message": "list cloudaccount failed.",
+        "zh_CN": "云账号列出失败，内部错误"
+    },
+    "DeleteAccountFailed": {
+        "code": 48,
+        "message": "delete cloudaccount failed.",
+        "zh_CN": "云账号删除失败"
+    },
+    "UpadteAccountFailed": {
+        "code": 49,
+        "message": "update cloudaccount failed.",
+        "zh_CN": "更新云账号失败"
+    },
+    "InsertAccountFailed": {
+        "code": 50,
+        "message": "insert cloudaccount failed.",
+        "zh_CN": "云账号插入失败"
+    },
+    "GetAccountFailed": {
+        "code": 51,
+        "message": "get cloudaccount failed.",
+        "zh_CN": "云账号获取失败"
+    },
+    "CloudAccountPoliciesReadOnlyError": {
+        "code": 52,
+        "message": "get CloudAccount readonly policy failed.",
+        "zh_CN": "获取云账号只读权限失败"
+    },
+    "CloudAccountExists": {
+        "code": 53,
+        "message": "CloudAccount already exist.",
+        "zh_CN": "云账号已存在"
+    },
+    "CloudAccountError": {
+        "code": 54,
+        "message": "CloudAccount do not have sts error.",
+        "zh_CN": "当前云账号非子账号"
+    },
+    "PrimaryCloudAccountNotAllow": {
+        "code": 55,
+        "message": "user cloudaccount number as same as primary cloudaccount number.",
+        "zh_CN": "当前云账号非子账号"
+    },
+    "CloudAccountGetPoliciesError": {
+        "code": 56,
+        "message": "this accesskey do not have authority to get policies.",
+        "zh_CN": "云账号获取权限失败"
+    },
+    "DeviceNotFound": {
+        "code": 57,
+        "message": "Device Not Found.",
+        "zh_CN": "设备未找到"
+    },
+    "DuplicateDeviceName": {
+        "code": 58,
+        "message": "Device Already Exist.",
+        "zh_CN": "设备名已经存在"
+    },
+    "UserInfoNotCorrect": {
+        "code": 59,
+        "message": "User Account Or Password Is Not Correct,Please Check Again.",
+        "zh_CN": "用户数据"
+    },
+    "DuplicateMobile": {
+        "code": 60,
+        "message": "Mobile Already Exist.",
+        "zh_CN": "电话号码已存在"
+    },
+    "NeedToUnbindDevice": {
+        "code": 62,
+        "message": "Need To Unbind Device",
+        "zh_CN": "请去解绑设备"
+    },
+    "ServiceNotFound": {
+        "code": 63,
+        "message": "Service Not Found",
+        "zh_CN": "服务项未找到"
+    },
+    "NeedVerifyCode": {
+        "code": 64,
+        "message": "NeedVerifyCode",
+        "zh_CN": "需要验证码"
+    },
+    "CloudAccountNotFound": {
+        "code": 65,
+        "message": "CloudAccount Not Found",
+        "zh_CN": "云账号未找到"
+    },
+    "DuplicateAccount": {
+        "code": 66,
+        "message": "Account Already Exist",
+        "zh_CN": "当前账号已存在"
+    },
+    "CannotCall": {
+        "code": 67,
+        "message": "Cannot call",
+        "zh_CN": "无法拨打双向回拨电话"
+    },
+    "UnknownAuthType": {
+        "code": 68,
+        "message": "Unknown Auth Type",
+        "zh_CN": "未知的认证类型"
+    },
+    "AddressNotFound": {
+        "code": 69,
+        "message": "Address Not Found",
+        "zh_CN": "用户地址未找到"
+    },
+    "UntrustedClient": {
+        "code": 70,
+        "message": "Client is unstrusted",
+        "zh_CN": "未受信任的设备"
+    },
+    "QRCodeExpired": {
+        "code": 71,
+        "message": "QRCode is expired",
+        "zh_CN": "二维码已过期"
+    },
+    "DeviceAlreadyBinded": {
+        "code": 72,
+        "message": "Device Already Binded",
+        "zh_CN": "此设备已经绑定子账号"
+    },
+    "CheckDevieAndAccount": {
+        "code": 73,
+        "message": "this device may not belong to this account.",
+        "zh_CN": "设备账号不相符"
+    },
+    "FormatError": {
+        "code": 74,
+        "message": "Format must be image",
+        "zh_CN": "附件需要传递图片类型"
+    },
+    "CompanyNotFound": {
+        "code": 75,
+        "message": "Company Not Found",
+        "zh_CN": "公司未找到"
+    },
+    "DeviceAlreadyLogin": {
+        "code": 76,
+        "message": "This kind of device already login please check",
+        "zh_CN": "此账号该类型设备已经登录，请确认退出后再次登录"
+    },
+    "AccountPasswordNotModify": {
+        "code": 77,
+        "message": "InCorrect Account Or Password",
+        "zh_CN": "账号或密码错误！"
+    },
+    "DeviceNotAllowedToLogin": {
+        "code": 78,
+        "message": "Device Not Allowed To Login",
+        "zh_CN": "当前设备不允许登录"
+    },
+    "DeviceForceToSignOut": {
+        "code": 79,
+        "message": "Device Sign up other place,Force To Sign Out",
+        "zh_CN": "有相同设备登录，该设备被强行登出"
+    },
+    "TemporarySubuserDontExist": {
+        "code": 80,
+        "message": "Temporary Subuser DontExist",
+        "zh_CN": "临时子账号不存在"
+    },
+    "NetworkError": {
+        "code": 81,
+        "message": "Network Error",
+        "zh_CN": "网络不稳定"
+    },
+    "EmailNotExists": {
+        "code": 82,
+        "message": "EmailNotExists",
+        "zh_CN": "邮件不存在(该用户不存在！)"
+    },
+    "MobileNotExists": {
+        "code": 83,
+        "message": "MobileNotExists",
+        "zh_CN": "手机不存在"
+    },
+    "BindCompanyFirst": {
+        "code": 84,
+        "message": "Bind Company First",
+        "zh_CN": "请先绑定公司"
+    },
+    "CantCreateEvent": {
+        "code": 85,
+        "message": "Cant Create Event",
+        "zh_CN": "当前服务包不支持发起此类事件"
+    },
+    "InvalidSignature": {
+        "code": 86,
+        "message": "Invalid signature",
+        "zh_CN": "签名不合法"
+    },
+    "OrderNotExists": {
+        "code": 87,
+        "message": "Order dont exists",
+        "zh_CN": "订单不存在"
+    },
+    "EventAlreadyEvaluate": {
+        "code": 88,
+        "message": "Event Already Evaluate",
+        "zh_CN": "事件已经评分，无须重复评价"
+    },
+    "DeliveryInfoError": {
+        "code": 89,
+        "message": "Delivery information error",
+        "zh_CN": "暂未查询到快递信息"
+    },
+    "DeliveryNotExists": {
+        "code": 90,
+        "message": "Delivery not exists",
+        "zh_CN": "快递信息不存在"
+    },
+    "DeliveryQueryUnauthorized": {
+        "code": 91,
+        "message": "DeliveryQueryUnauthorized",
+        "zh_CN": "无快递查询权限"
+    },
+    "PhoneNotExists": {
+        "code": 92,
+        "message": "PhoneNotExists",
+        "zh_CN": "手机不存在"
+    },
+    "PrimaryCompanyCanNotDeactivate": {
+        "code": 93,
+        "message": "Primary Company CanNot Deactivate",
+        "zh_CN": "主账号不能解绑"
+    },
+    "OnlyPrimaryUserCanDoThisAction": {
+        "code": 94,
+        "message": "Only Primary User can change company",
+        "zh_CN": "只有主账号能够转移企业主账号"
+    },
+    "ToolTypeError": {
+        "code": 95,
+        "message": "Tool Type Error",
+        "zh_CN": "类型错误"
+    },
+    "InvalidMobiles": {
+        "code": 96,
+        "message": "Invalid Mobile",
+        "zh_CN": "手机号不合法"
+    },
+    "InvalidEmail": {
+        "code": 97,
+        "message": "Invalid Email",
+        "zh_CN": "邮箱不合法"
+    },
+    "ThrottlingControl": {
+        "code": 98,
+        "message": "Throttling Control",
+        "zh_CN": "拨打电话被限流"
+    },
+    "AlreadyInCompany": {
+        "code": 99,
+        "message": "Already in a company",
+        "zh_CN": "已经加入了公司"
+    },
+    "VerifyCodeExpired": {
+        "code": 100,
+        "message": "Verify Code Expired",
+        "zh_CN": "验证码失效，请重新获取！"
+    },
+    "InvalidUsername": {
+        "code": 101,
+        "message": "User Name Already Exist",
+        "zh_CN": "用户名称已经存在"
+    },
+    "NicknameAlreadyExist": {
+        "code": 102,
+        "message": "Nickname Already Exist",
+        "zh_CN": "昵称已经存在"
+    },
+    "OrderInternalError": {
+        "code": 103,
+        "message": "Order Internal Error",
+        "zh_CN": "订单状态异常"
+    },
+    "PhoneExists": {
+        "code": 104,
+        "message": "PhoneExists",
+        "zh_CN": "手机存在"
+    },
+    "DeviceExceed": {
+        "code": 105,
+        "message": "DeviceExceed",
+        "zh_CN": "您当前的子账号数量已达上限！"
+    },
+    "EmailExists": {
+        "code": 106,
+        "message": "Email Exists",
+        "zh_CN": "邮箱已存在"
+    },
+    "CantBeSameAsUsedPhone": {
+        "code": 107,
+        "message": "Cant Be Same As Used Phone",
+        "zh_CN": "不能与原手机号相同"
+    },
+    "VersionTypeError": {
+        "code": 108,
+        "message": "Version Type Error",
+        "zh_CN": "版本不同，请升级版本"
+    },
+    "RefreshTokenAlreadyUsed": {
+        "code": 109,
+        "message": "Refresh Token Already Used",
+        "zh_CN": "刷新token已经被使用过"
+    },
+    "FileNotExists": {
+        "code": 110,
+        "message": "File is not exists",
+        "zh_CN": "文件不存在"
+    },
+    "CantDegrade": {
+        "code": 111,
+        "message": "Cant Degrade",
+        "zh_CN": "不能降级"
+    },
+    "OrderFinished": {
+        "code": 112,
+        "message": "Order Finished",
+        "zh_CN": "该订单已经完成"
+    },
+    "BasicUserNotAllowed": {
+        "code": 113,
+        "message": "Basic User Not Allowed",
+        "zh_CN": "免费用户不能访问"
+    },
+    "MessageTypeError": {
+        "code": 114,
+        "message": "Message Type Error",
+        "zh_CN": "消息类型错误"
+    },
+    "CodeError": {
+        "code": 115,
+        "message": "Code Error",
+        "zh_CN": "二维码错误"
+    },
+    "TokenExpiredSixty": {
+        "code": 116,
+        "message": "access token will expire after sixty seconds",
+        "zh_CN": "令牌将会在60秒之后过期"
+    },
+    "CantGetUpdateInfo": {
+        "code": 117,
+        "message": "Cant Get UpdateInfo",
+        "zh_CN": "无法获取应用升级更新信息"
+    },
+    "CompanyCancelError": {
+        "code": 118,
+        "message": "Company Cancel Error",
+        "zh_CN": "企业注销失败"
+    },
+    "ChangePrimaryUser": {
+        "code": 119,
+        "message": "Change Primary User Kick Out",
+        "zh_CN": "企业转移主账号踢出"
+    },
+    "CancelCompany": {
+        "code": 120,
+        "message": "Cancel Company",
+        "zh_CN": "转移公司踢出"
+    },
+    "GreetingError": {
+        "code": 121,
+        "message": "Greeting Error",
+        "zh_CN": "问候内部错误"
+    },
+    "LoginUserNotFound": {
+        "code": 122,
+        "message": "Login User Not Found",
+        "zh_CN": "登录用户不存在"
+    },
+    "WorkGroupNotFound": {
+        "code": 123,
+        "message": "Work Group Not Found",
+        "zh_CN": "工作组不存在"
+    }
+}
