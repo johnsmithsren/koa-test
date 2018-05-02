@@ -53,22 +53,22 @@ module.exports = class User {
         let mobile = _.get(user_info, 'mobile')
         let nickname = _.get(user_info, 'nick_name')
         let name = _.get(user_info, 'name')
-        if (this.check_user_email_exist(email)) {
-            ctx.body = error.InvalidEmail
-            return
-        }
-        if (this.check_user_mobile_exist(mobile)) {
-            ctx.body = error.InvalidMobile
-            return
-        }
-        if (this.check_user_name_exist(name)) {
-            ctx.body = error.InvalidUsername
-            return
-        }
-        if (this.check_user_nickname_exist(nickname)) {
-            ctx.body = error.NicknameAlreadyExist
-            return
-        }
+        // if (this.check_user_email_exist(email)) {
+        //     ctx.body = error.InvalidEmail
+        //     return
+        // }
+        // if (this.check_user_mobile_exist(mobile)) {
+        //     ctx.body = error.InvalidMobile
+        //     return
+        // }
+        // if (this.check_user_name_exist(name)) {
+        //     ctx.body = error.InvalidUsername
+        //     return
+        // }
+        // if (this.check_user_nickname_exist(nickname)) {
+        //     ctx.body = error.NicknameAlreadyExist
+        //     return
+        // }
         _.set(user_info, 'unique_id', uuidv4())
         const result = await user.create_user(user_info)
         return result;

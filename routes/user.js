@@ -25,9 +25,10 @@ router.get('/get_user', async (ctx, next) => {
 
 
 router.post('/create_user', async (ctx, next) => {
-    let user_info = ctx.query
+    let user_info = ctx.request.body
     let user = new user_controller()
-    return await user.create_user(user_info)
+    ctx.body = await user.create_user(user_info)
+    return
 })
 
 module.exports = router

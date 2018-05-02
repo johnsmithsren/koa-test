@@ -17,16 +17,18 @@ module.exports = class user_model {
      * @param {*} user_info         用户详细信息
      */
     async create_user(user_info) {
-        _user = {
+        const _create_time = util.timestamp()
+        const _user = {
             user_name: user_info.name,
             nick_name: user_info.nick_name,
             email: user_info.emial,
             mobile: user_info.mobile,
             unique_id: user_info.unique_id,
-            create_time: util.timestamp(),
-            password: util.md5(user_info.password + create_time)
+            create_time: _create_time,
+            password: util.md5(user_info.password + _create_time)
         }
-        return await db_query.query('insert into user set create_time=unix_timestamp(now()), ?', [_user])
+        const result = await db_query.query('insert into user set ?', [_user])
+        return _user
     }
 
     /**
