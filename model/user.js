@@ -28,6 +28,7 @@ module.exports = class user_model {
             password: util.md5(user_info.password + _create_time)
         }
         const result = await db_query.query('insert into user set ?', [_user])
+        _.set(_user, 'id', result.insertId)
         return _user
     }
 
@@ -38,6 +39,11 @@ module.exports = class user_model {
     async get_user(unique_id) {
         const info = await db_query.query('select id,nick_name from user where id = ?', [unique_id])
         return info
+    }
+
+    async list_user() {
+        const user_list = await db_query.query('select id,nick_name,user_name,mobile,email from user')
+        return user_list
     }
 
 };

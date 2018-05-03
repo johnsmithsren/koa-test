@@ -7,7 +7,6 @@ const error = require('../util/error')
 
 
 router.get('/get_user', async (ctx, next) => {
-
     let user_unique_id = _.get(ctx.query, 'user_unique_id', '')
     if (user_unique_id == '') {
         ctx.body = error.InvalidParameter
@@ -22,6 +21,11 @@ router.get('/get_user', async (ctx, next) => {
     return
 })
 
+router.get('/list_user', async (ctx, next) => {
+    let user = new user_controller()
+    ctx.body = await user.list_user()
+    return
+})
 
 
 router.post('/create_user', async (ctx, next) => {

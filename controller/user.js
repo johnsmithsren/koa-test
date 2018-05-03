@@ -83,4 +83,10 @@ module.exports = class User {
         const result = await user.get_user(accountId)
         return result;
     }
+
+    async list_user() {
+        let user = new user_model()
+        const result = await user.list_user()
+        return result
+    }
 }

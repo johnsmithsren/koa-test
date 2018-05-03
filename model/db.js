@@ -20,7 +20,7 @@ module.exports.query = function (sql, values) {
                     if (err) {
                         reject(err)
                     } else {
-                        resolve(rows[0])
+                        resolve(rows)
                     }
                     connection.release()
                 })
