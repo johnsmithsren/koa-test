@@ -15,7 +15,7 @@ router.get('/list_article', async (ctx, next) => {
 })
 
 
-router.get('/create_article', async (ctx, next) => {
+router.post('/create_article', async (ctx, next) => {
     let article = new article_controller();
     let article_info = ctx.request.body
     result = await article.create_article(article_info)

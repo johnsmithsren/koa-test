@@ -33,6 +33,8 @@ app.use(async (ctx, next) => {
   const ms = new Date() - start
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })
+
+
 app.use(cors())
 // routes
 fs.readdirSync(__dirname + '/routes').forEach((file) => {
