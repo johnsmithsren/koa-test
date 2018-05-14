@@ -27,7 +27,8 @@ router.post('/hello', async (ctx, next) => {
 
 
 router.post('/get_local_pwd', async (ctx, next) => {
-  let result = await exec('git pull origin master', function (error, stdout, stderr) {
+  console.log(ctx.request.body)
+  let result = await exec('git pull origin master;pm2 restart 0', function (error, stdout, stderr) {
     if (error) {
       console.error('error: ' + error);
       return;
