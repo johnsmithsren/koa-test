@@ -1,4 +1,6 @@
 const router = require('koa-router')()
+const exec = require('child_process').exec;
+const util = require('util');
 let user_controller = require('../controller/user')
 router.get('/', async (ctx, next) => {
   await ctx.render('index', {
@@ -23,6 +25,22 @@ router.post('/hello', async (ctx, next) => {
   }
 })
 
+
+router.post('/get_local_pwd', async (ctx, next) => {
+  let result = await exec('git pull origin master', function (error, stdout, stderr) {
+    if (error) {
+      console.error('error: ' + error);
+      return;
+    }
+    console.log('stdout: ' + stdout);
+    console.log('stderr: ' + typeof stderr);
+    return stdout
+  });
+  ctx.body = {
+    msg: 'success'
+  }
+
+})
 
 
 module.exports = router

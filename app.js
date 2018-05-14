@@ -7,6 +7,7 @@ const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const cors = require('koa-cors');
 const fs = require('fs');
+const Oauth = require('./controller/oauth')
 
 // const index = require('./routes/index')
 const user = require('./routes/user')
