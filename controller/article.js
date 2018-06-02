@@ -13,19 +13,26 @@ module.exports = class Article {
     /**
     * 用户留言列表
     */
-    async list_article() {
+    async list_article(level) {
         let article = new article_model()
-        return await article.list_article()
+        return await article.list_article(level)
     }
 
     /**
    * 创建留言
    */
 
-    async create_article(article_info) {
+    async create_article(article_info, user_unique_id, user_current_level) {
         let article = new article_model()
+        let user = new user_model()
+        let level = await article.check_user_level(user_unique_id)
+        if (user_current_level != level) {
+            await user.update_user_level(user_unique_id, level)
+        }
+
         _.set(article_info, 'unique_id', uuidv4())
-        return await article.create_article(article_info)
+        _.set(article_info, "level", level)
+        return await article.create_article(article_info, user_unique_id)
     }
 
 }

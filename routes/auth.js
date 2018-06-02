@@ -21,18 +21,18 @@ router.post('/login', async (ctx, next) => {
     let password = _.get(ctx.request.body, 'password', '')
     let user = new user_controller();
     let acecessToken = null
-    result = await user.auth(user_name, password)
+    result = await user.auth(user_name, password, ctx)
     if (result) {
-        acecessToken = await user.getAcecessToken(user_name)
+        acecessToken = await user.getAcecessToken(ctx.user_info.unique_id)
+        ctx.body = {
+            data: {
+                accessToken: acecessToken,
+                expireTime: config.expires,
+            },
+            err: 0
+        }
     } else {
         ctx.body = error.UserInfoNotCorrect
-    }
-    ctx.body = {
-        data: {
-            accessToken: acecessToken,
-            expireTime: config.expires,
-        },
-        err: 0
     }
     return
 })

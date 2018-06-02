@@ -16,19 +16,27 @@ module.exports = class article_model {
     /**
      * 获取用户留言列表接口
      */
-    async list_article() {
-        let articles = []
-        let user_list = await db_query.query('select unique_id,status =1 from user')
-        _.forEach(user_list, function (_user) {
-            let _article = db_query.query('select title,name,create_time from article where user_unique_id = ? and status=1', [_user.unique_id])
-            _.concat(articles, _article)
-        })
+    async list_article(level) {
+        let articles = db_query.query('select title,name,create_time from article where  status=1 and level =?', [level])
         return articles
     }
 
 
-    async create_article(article_info) {
-        result = await db_query.query('insert into article set status=1 ,create_time = UNIX_TIMESTAMP(NOW()) ,?', [article_info])
+    async create_article(article_info, user_unique_id) {
+        result = await db_query.query('insert into article set status=1 ,create_time = UNIX_TIMESTAMP(NOW()) ,?,user_unique_id= ?', [article_info, user_unique_id])
         return result
+    }
+
+    async check_user_level(user_unique_id) {
+        result = await db_query.query('select id from  article where user_unique_id =？,status=1', [user_unique_id])
+        let level = 1
+        if (result.length <= 2) {
+            level = 1
+        } else if (2 < result.length <= 5) {
+            level = 2
+        } else if (5 < result.length <= 50) {
+            level = 3
+        }
+        return level
     }
 }

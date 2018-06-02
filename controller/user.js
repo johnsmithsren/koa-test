@@ -10,6 +10,7 @@ const jwt = require("jsonwebtoken")
 const uuid = require("node-uuid")
 const config = require("../config.json")
 const redis = require("../util/store.js");
+const error = require('../util/error')
 module.exports = class User {
     constructor() {
     }
@@ -18,64 +19,65 @@ module.exports = class User {
     * 检查用户名字是否存在
     * @param {*} name     用户名称
     */
-    check_user_name_exist(name) {
+    async check_user_name_exist(name) {
         let user = new user_model()
-        return user.check_user_name(name)
+        return await user.check_user_user_name_exist(name)
     }
     /**
     * 检查用户邮箱是否存在
     * @param {*} email     用户邮箱
     */
-    check_user_email_exist(email) {
+    async check_user_email_exist(email) {
         let user = new user_model()
-        return user.check_user_name(email)
+        return await user.check_user_email_exist(email)
     }
     /**
     * 检查用户手机是否存在
     * @param {*} mobile     用户手机
     */
-    check_user_mobile_exist(mobile) {
+    async check_user_mobile_exist(mobile) {
         let user = new user_model()
-        return user.check_user_mobile(mobile)
+        return await user.check_user_mobile_exist(mobile)
     }
 
     /**
-    * 检查用户手机是否存在
+    * 检查用户昵称是否存在
     * @param {*} mobile     用户手机
     */
-    check_user_nickname_exist(nickname) {
+    async check_user_nickname_exist(nickname) {
         let user = new user_model()
-        return user.check_user_na(nickname)
+        return await user.check_user_nickname_exist(nickname)
     }
     /**
     * 创建用户
     * @param {*} info     用户信息
     */
-    async create_user(user_info) {
+    async create_user(user_info, ctx) {
         let user = new user_model()
         let email = _.get(user_info, 'email')
         let mobile = _.get(user_info, 'mobile')
         let nickname = _.get(user_info, 'nick_name')
         let name = _.get(user_info, 'name')
-        // if (this.check_user_email_exist(email)) {
-        //     ctx.body = error.InvalidEmail
-        //     return
-        // }
-        // if (this.check_user_mobile_exist(mobile)) {
-        //     ctx.body = error.InvalidMobile
-        //     return
-        // }
-        // if (this.check_user_name_exist(name)) {
-        //     ctx.body = error.InvalidUsername
-        //     return
-        // }
-        // if (this.check_user_nickname_exist(nickname)) {
-        //     ctx.body = error.NicknameAlreadyExist
-        //     return
-        // }
+        if (await this.check_user_email_exist(email)) {
+            ctx.body = error.InvalidEmail
+            return
+        }
+        if (await this.check_user_mobile_exist(mobile)) {
+            ctx.body = error.InvalidMobile
+            return
+        }
+        if (await this.check_user_name_exist(name)) {
+            ctx.body = error.InvalidUsername
+            return
+        }
+        if (await this.check_user_nickname_exist(nickname)) {
+            ctx.body = error.NicknameAlreadyExist
+            return
+        }
         _.set(user_info, 'unique_id', uuidv4())
         const result = await user.create_user(user_info)
-        return result;
+        ctx.body = {}
+        return
     }
 
     /**
@@ -88,35 +90,35 @@ module.exports = class User {
         return result;
     }
 
-    async list_user() {
+    async list_user(flag) {
         let user = new user_model()
-        const result = await user.list_user()
+        const result = await user.list_user(flag)
         return result
     }
 
-    async auth(user_name, password) {
+    async auth(user_name, password, ctx) {
         let user = new user_model()
-        const result = await user.auth(user_name, password)
+        const result = await user.auth(user_name, password, ctx)
         return result
     }
 
 
-    async getAcecessToken(user_name) {
+    async getAcecessToken(unique_id) {
         let _uuid = uuid.v4()
         let AcecessToken = jwt.sign({
-            username: user_name,
+            unique_id: unique_id,
             uuid: _uuid
         }, config.secret, {
                 expiresIn: config.expires
             });
-        await redis.set(user_name, _uuid)
+        await redis.set(unique_id + '_' + _uuid, _uuid)
         return AcecessToken
     }
 
 
-    async get_user_by_username(user_name) {
+    async get_user_by_unique_id(unique_id) {
         let user = new user_model()
-        const result = await user.get_user_by_username(user_name)
+        const result = await user.get_user_by_unique_id(unique_id)
         return result
     }
 
