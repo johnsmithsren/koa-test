@@ -1,0 +1,20 @@
+{
+    "debug": true,
+    "name": "测试环境配置",
+    "description": "测试环境配置",
+    "version": "0.0.1",
+    "env": "dev",
+    "port": 3001,
+    "host": "66.98.120.206",
+    "user": "root",
+    "password": "qwe123123",
+    "database": "koa_vue",
+    "secret": "test_koa_vue",
+    "expires": 36000,
+    "session_key": "koa_vue",
+    "redis_port": "6379",
+    "redis_host": "66.98.120.206",
+    "redis_family": 4,
+    "redis_password": "koa-vue",
+    "redis_db": 0
+}

@@ -6,6 +6,10 @@
 const _ = require('lodash');
 const user_model = require('../model/user');
 const uuidv4 = require('uuid/v4')
+const jwt = require("jsonwebtoken")
+const uuid = require("node-uuid")
+const config = require("../config.json")
+const redis = require("../util/store.js");
 module.exports = class User {
     constructor() {
     }
@@ -89,4 +93,32 @@ module.exports = class User {
         const result = await user.list_user()
         return result
     }
+
+    async auth(user_name, password) {
+        let user = new user_model()
+        const result = await user.auth(user_name, password)
+        return result
+    }
+
+
+    async getAcecessToken(user_name) {
+        let _uuid = uuid.v4()
+        let AcecessToken = jwt.sign({
+            username: user_name,
+            uuid: _uuid
+        }, config.secret, {
+                expiresIn: config.expires
+            });
+        await redis.set(user_name, _uuid)
+        return AcecessToken
+    }
+
+
+    async get_user_by_username(user_name) {
+        let user = new user_model()
+        const result = await user.get_user_by_username(user_name)
+        return result
+    }
+
+
 }

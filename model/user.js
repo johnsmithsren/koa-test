@@ -46,4 +46,18 @@ module.exports = class user_model {
         return user_list
     }
 
+    async auth(user_name, password) {
+        const _user = await db_query.query('select id,create_time,user_name,password from user where user_name = ?', [user_name])
+        if (_user && util.md5(password + _user[0].create_time) == _user[0].password) {
+            return true
+        }
+        return false
+    }
+
+
+    async get_user_by_username(user_name) {
+        const _user = await db_query.query('select id,create_time,user_name,password from user where user_name = ?', [user_name])
+        return _user
+    }
+
 };

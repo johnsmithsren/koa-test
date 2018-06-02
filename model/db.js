@@ -1,9 +1,10 @@
 const mysql = require('mysql')
+const config = require("../config.json")
 const pool = mysql.createPool({
-    host: '66.98.120.206',
-    user: 'root',
-    password: 'qwe123123',
-    database: 'koa_vue',
+    host: config.host,
+    user: config.user,
+    password: config.password,
+    database: config.database,
     connectionLimit: 10,
     acquireTimeout: 10000,
     multipleStatements: true,

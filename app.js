@@ -4,6 +4,7 @@ const views = require('koa-views')
 const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
+const config = require("./config.json")
 const logger = require('koa-logger')
 const cors = require('koa-cors');
 const fs = require('fs');
@@ -11,6 +12,8 @@ const Oauth = require('./controller/oauth')
 
 // const index = require('./routes/index')
 const user = require('./routes/user')
+// const session = require("koa-session2");
+// const Store = require("./util/store.js");
 
 // error handler
 onerror(app)
@@ -26,6 +29,7 @@ app.use(require('koa-static')(__dirname + '/public'))
 app.use(views(__dirname + '/views', {
   extension: 'pug'
 }))
+
 
 // logger
 app.use(async (ctx, next) => {
