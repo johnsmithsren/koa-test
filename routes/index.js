@@ -27,7 +27,7 @@ router.post('/hello', async (ctx, next) => {
 
 
 router.post('/get_local_pwd', async (ctx, next) => {
-  let result = await exec('ls;pwd', function (error, stdout, stderr) {
+  let result = await exec('ls;sh update.sh', function (error, stdout, stderr) {
     if (error) {
       console.error('error: ' + error);
       return;
