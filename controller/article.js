@@ -5,6 +5,7 @@
 'use strict';
 const _ = require('lodash');
 const article_model = require('../model/article');
+const user_model = require('../model/user');
 const uuidv4 = require('uuid/v4')
 module.exports = class Article {
     constructor() {
@@ -33,6 +34,22 @@ module.exports = class Article {
         _.set(article_info, 'unique_id', uuidv4())
         _.set(article_info, "level", level)
         return await article.create_article(article_info, user_unique_id)
+    }
+
+
+    async delete_article(article_info, user_unique_id) {
+        let article = new article_model()
+        return await article.delete_article(article_info, user_unique_id)
+    }
+
+    async edit_article(article_info, user_unique_id) {
+        let article = new article_model()
+        return await article.edit_article(article_info, user_unique_id)
+    }
+
+    async get_article(article_info, user_unique_id) {
+        let article = new article_model()
+        return await article.get_article(_.get(article_info, "unique_id", ""), user_unique_id)
     }
 
 }

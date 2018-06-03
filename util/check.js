@@ -7,9 +7,18 @@ const jwt = require("jsonwebtoken")
 module.exports.check = async function (ctx) {
     let token = _.get(ctx.headers, "token", false)
     if (token) {
-        let _result = jwt.verify(token, config.secret);
+        jwt.verify(token, config.secret, (err, result) => {
+            if (err) {
+                ctx.token_info = error.AcceessTokenExpired
+            } else {
+                ctx.token_info = result
+            }
+        })
+        if (_.get(ctx.token_info, "message", "") === "AcceessTokenExpired") {
+            return ctx.user_info = error.AcceessTokenExpired
+        }
         let user = new user_controller();
-        result = await user.get_user_by_unique_id(_result.unique_id)
+        result = await user.get_user_by_unique_id(ctx.token_info.unique_id)
         ctx.user_info = result[0]
     } else {
         return ctx.user_info = error.UserInfoNotCorrect

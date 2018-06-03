@@ -28,7 +28,7 @@ module.exports = class article_model {
     }
 
     async check_user_level(user_unique_id) {
-        result = await db_query.query('select id from  article where user_unique_id =？,status=1', [user_unique_id])
+        result = await db_query.query('select id from  article where user_unique_id =？and status=1', [user_unique_id])
         let level = 1
         if (result.length <= 2) {
             level = 1
@@ -38,5 +38,32 @@ module.exports = class article_model {
             level = 3
         }
         return level
+    }
+
+    async delete_article(article_info, user_unique_id) {
+        let article = await db_query.query('select * from  article where unique_id = ? and  status=1 and  user_unique_id = ?', [_.get(article_info, "unique_id", ""), user_unique_id])
+        if (article.length > 0) {
+            await db_query.query('delete from  article where unique_id =?', [article[0].unique_id])
+            return true
+        }
+        return false
+    }
+
+    async edit_article(article_info, user_unique_id) {
+        let article = await db_query.query('select * from  article where unique_id = ? and  status=1 and  user_unique_id = ?', [_.get(article_info, "unique_id", ""), user_unique_id])
+        if (article.length > 0) {
+            await db_query.query('update article set ? where unique_id =?', [article_info, article[0].unique_id])
+            return true
+        }
+        return false
+    }
+
+
+    async get_article(article_unique_id, user_unique_id) {
+        let article = await db_query.query('select * from  article where unique_id = ? and  status=1 and  user_unique_id = ?', [article_unique_id, user_unique_id])
+        if (article.length > 0) {
+            return article[0]
+        }
+        return {}
     }
 }
