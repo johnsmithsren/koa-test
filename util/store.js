@@ -9,8 +9,8 @@ class RedisStore extends Store {
             {
                 port: config.redis_port,          // Redis port
                 host: config.redis_host,   // Redis host
-                family: config.redis_family,           // 4 (IPv4) or 6 (IPv6)
-                password: config.redis_password,
+                // family: config.redis_family,           // 4 (IPv4) or 6 (IPv6)
+                // password: config.redis_password,
                 db: config.redis_db
             });
     }

@@ -5,16 +5,17 @@
     "version": "0.0.1",
     "env": "dev",
     "port": 3001,
-    "host": "66.98.120.206",
+    "host": "13.209.42.70",
     "user": "root",
     "password": "qwe123123",
-    "database": "koa_vue",
+    "database": "koa-react",
     "secret": "test_koa_vue",
     "expires": 36000,
-    "session_key": "koa_vue",
+    "session_key": "koa-react",
     "redis_port": "6379",
-    "redis_host": "66.98.120.206",
+    "redis_host": "13.209.42.70",
     "redis_family": 4,
-    "redis_password": "koa-vue",
-    "redis_db": 0
+    "redis_password": "koa-react",
+    "redis_db": 0,
+    "route_port": "1111"
 }

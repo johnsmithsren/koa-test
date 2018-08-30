@@ -6,13 +6,15 @@
 
 var app = require('../app');
 var debug = require('debug')('demo:server');
+const config = require("../config.json")
+const _ = require("lodash")
 var http = require('http');
 
 /**
  * Get port from environment and store in Express.
  */
-
-var port = normalizePort(process.env.PORT || '3000');
+let p = _.get(config, 'route_port')
+var port = normalizePort(process.env.PORT || p);
 // app.set('port', port);
 
 /**
