@@ -140,6 +140,67 @@ router.post('/mock/usercenter/user/userMenu', async (ctx, next) => {
     // ctx.body = await user.list_user()
     return
 })
+// 留言数据存储
+router.post('/mock/usercenter/article/saveEditorContent', async (ctx, next) => {
+    ctx.body = {
+        data: {
+            list: [
+                {
+                    id: 10060,
+                    resName: '工作台',
+                    children: [
+                        {
+                            id: 10063,
+                            resName: '概览',
+                            resKey: 'desk$/index',
+                            resIcon: '',
+                        },
+                        {
+                            id: 600110233,
+                            resName: '图表',
+                            resKey: 'echarts',
+                            resIcon: '',
+                        },
+                        {
+                            id: 100631,
+                            resName: '编辑器',
+                            resKey: 'editor',
+                            resIcon: '',
+                        },
+                        {
+                            id: 100632,
+                            resName: '消息中心',
+                            resKey: 'message',
+                            resIcon: '',
+                        },
+                    ],
+                    resKey: 'desk$',
+                    resIcon: 'home',
+                },
+                {
+                    id: 10062,
+                    resName: '设置中心',
+                    children: [
+                        {
+                            id: 10108,
+                            resName: '用户管理',
+                            resKey: 'set$/userManage',
+                            resIcon: 'userManage',
+                        },
+                    ],
+                    resKey: 'set$',
+                    resIcon: 'set',
+                },
+            ],
+        },
+        msg: '操作成功',
+        status: 1,
+    }
+
+    // let user = new user_controller()
+    // ctx.body = await user.list_user()
+    return
+})
 router.get('/refresh', async (ctx, next) => {
     // let user = new user_controller()
     // ctx.body = await user.list_user()
