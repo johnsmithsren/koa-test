@@ -22,7 +22,9 @@ router.get('/list_user', async (ctx, next) => {
 })
 
 
-router.post('/create_user', async (ctx, next) => {
+// 用户注册接口
+// mock/usercenter/user/register
+router.post('/mock/usercenter/user/register', async (ctx, next) => {
     let user_info = ctx.request.body
     let user = new user_controller()
     await user.create_user(user_info, ctx)

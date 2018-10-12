@@ -55,8 +55,8 @@ module.exports = class User {
     async create_user(user_info, ctx) {
         let user = new user_model()
         let email = _.get(user_info, 'email')
-        let mobile = _.get(user_info, 'mobile')
-        let nickname = _.get(user_info, 'nick_name')
+        let mobile = _.get(user_info, 'phone')
+        let nickname = _.get(user_info, 'nickname')
         let name = _.get(user_info, 'name')
         if (await this.check_user_email_exist(email)) {
             ctx.body = error.InvalidEmail

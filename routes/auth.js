@@ -50,6 +50,9 @@ router.post('/mock/usercenter/login', async (ctx, next) => {
     return
 })
 
+
+
+
 router.post('/logout', async (ctx, next) => {
     // let user_name = _.get(ctx.request.body, 'user_name', '')
     // let password = _.get(ctx.request.body, 'password', '')

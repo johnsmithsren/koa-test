@@ -19,12 +19,12 @@ module.exports = class user_model {
     async create_user(user_info) {
         const _create_time = util.timestamp()
         const _user = {
-            user_name: user_info.name,
-            nick_name: user_info.nick_name,
+            userName: user_info.name,
+            nickName: user_info.nickname,
             email: user_info.email,
             mobile: user_info.mobile,
             unique_id: user_info.unique_id,
-            create_time: _create_time,
+            createTime: _create_time,
             password: util.md5(user_info.password + _create_time)
         }
         const result = await db_query.query('insert into user set ?', [_user])
