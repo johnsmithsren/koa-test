@@ -66,10 +66,10 @@ module.exports = class User {
             ctx.body = error.InvalidMobile
             return
         }
-        if (await this.check_user_name_exist(name)) {
-            ctx.body = error.InvalidUsername
-            return
-        }
+        // if (await this.check_user_name_exist(name)) {
+        //     ctx.body = error.InvalidUsername
+        //     return
+        // }
         if (await this.check_user_nickname_exist(nickname)) {
             ctx.body = error.NicknameAlreadyExist
             return
