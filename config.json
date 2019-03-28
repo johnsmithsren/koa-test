@@ -6,7 +6,7 @@
   "env": "dev",
   "port": 3001,
   "host": "127.0.0.1",
-  "user": "root",
+  "user": "koa_test",
   "password": "password",
   "database": "koa",
   "secret": "test_koa_vue",

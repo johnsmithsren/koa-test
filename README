@@ -1,4 +1,7 @@
+主要环境为 amazon Ubuntu部署koa
+###
 sudo docker pull mysql 
+###
 sudo docker  run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
 如果没有安装docker
 sudo apt-get install docker.io
@@ -6,5 +9,16 @@ sudo apt-get install docker.io
 sudo docker exec -i -t -uroot xxxxxxx bash ;   xxxxx 为container id
 mysql -u root -p xxxx
 需要创建用户,创建数据库
+create database xxxx;
+create user xxx identified by 'xxx';
 然后配置config
+sudo docker pull redis
+进入redis的容器中
+redis-cli
+CONFIG get requirepass
+CONFIG set requirepass 'xxxx'
+这样在redis操作需要先auth 然后才能正常操作
+
+
+
 
