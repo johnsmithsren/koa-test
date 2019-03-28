@@ -1,0 +1,10 @@
+sudo docker pull mysql 
+sudo docker  run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
+如果没有安装docker
+sudo apt-get install docker.io
+如果安装忽略
+sudo docker exec -i -t -uroot xxxxxxx bash ;   xxxxx 为container id
+mysql -u root -p xxxx
+需要创建用户,创建数据库
+然后配置config
+
