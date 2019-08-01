@@ -3,6 +3,12 @@ let comicController = require("../controller/comic");
 const _ = require("lodash");
 const error = require("../util/error");
 const checkPermission = require("../util/check");
+
+/**
+ * @description: 获取漫画列表
+ * @param {type}
+ * @return:
+ */
 router.get("/list/comic", async (ctx, next) => {
   //   await checkPermission.check(ctx);
   let level = 1;
@@ -13,6 +19,19 @@ router.get("/list/comic", async (ctx, next) => {
   }
   let comic = new comicController();
   result = await comic.listComic(level);
+  ctx.body = result;
+  return;
+});
+
+/**
+ * @description: 获取漫画最新更新
+ * @param {type}
+ * @return:
+ */
+router.get("/list/top/comic", async (ctx, next) => {
+  //   await checkPermission.check(ctx);
+  let comic = new comicController();
+  result = await comic.listTopComic();
   ctx.body = result;
   return;
 });

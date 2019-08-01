@@ -19,6 +19,16 @@ module.exports = class article_model {
     return articles;
   }
 
+  /**
+   * 获取用户留言列表接口
+   */
+  async getNewestArticle() {
+    let articles = db_query.query(
+      "select id,title from content order by id desc limit 1"
+    );
+    return articles;
+  }
+
   async create_article(article_info, user_unique_id) {
     result = await db_query.query(
       "insert into article set status=1 ,create_time = UNIX_TIMESTAMP(NOW()) ,?,user_unique_id= ?",
