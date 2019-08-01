@@ -13,7 +13,7 @@ const error = require("../util/error");
 // const redis = require("../util/store.js");
 // router.prefix('/users')
 
-router.post("/mock/usercenter/login", async (ctx, next) => {
+router.get("/login", async (ctx, next) => {
   // let user_name = _.get(ctx.request.body, 'user_name', '')
   // let password = _.get(ctx.request.body, 'password', '')
   // let user = new user_controller();

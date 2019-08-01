@@ -6,9 +6,9 @@
   "env": "dev",
   "port": 3001,
   "host": "127.0.0.1",
-  "user": "koa_test",
-  "password": "password",
-  "database": "koa",
+  "user": "renjm",
+  "password": "qwe123123",
+  "database": "test",
   "secret": "test_koa_vue",
   "expires": 36000,
   "session_key": "koa-react",
@@ -17,5 +17,5 @@
   "redis_family": 4,
   "redis_password": "koa-react",
   "redis_db": 0,
-  "route_port": "1111"
+  "route_port": "3001"
 }
