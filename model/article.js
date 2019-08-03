@@ -29,10 +29,10 @@ module.exports = class article_model {
     return articles;
   }
 
-  async create_article(article_info, user_unique_id) {
-    result = await db_query.query(
-      "insert into article set status=1 ,create_time = UNIX_TIMESTAMP(NOW()) ,?,user_unique_id= ?",
-      [article_info, user_unique_id]
+  async create_article(article_info) {
+    let result = await db_query.query(
+      "insert into content set createTime = UNIX_TIMESTAMP(NOW()) ,?",
+      [article_info]
     );
     return result;
   }
@@ -53,29 +53,29 @@ module.exports = class article_model {
     return level;
   }
 
-  async delete_article(article_info, user_unique_id) {
-    let article = await db_query.query(
-      "select * from  article where unique_id = ? and  status=1 and  user_unique_id = ?",
-      [_.get(article_info, "unique_id", ""), user_unique_id]
-    );
+  async deleteContent(article_info) {
+    let article = await db_query.query("select * from  content where id = ? ", [
+      _.get(article_info, "id", "")
+    ]);
     if (article.length > 0) {
-      await db_query.query("delete from  article where unique_id =?", [
-        article[0].unique_id
-      ]);
+      await db_query.query("delete from  content where id =?", [article[0].id]);
       return true;
     }
     return false;
   }
 
-  async edit_article(article_info, user_unique_id) {
-    let article = await db_query.query(
-      "select * from  article where unique_id = ? and  status=1 and  user_unique_id = ?",
-      [_.get(article_info, "unique_id", ""), user_unique_id]
-    );
+  async edit_article(article_info) {
+    let article = await db_query.query("select * from  content where id = ?", [
+      _.get(article_info, "id", "")
+    ]);
     if (article.length > 0) {
-      await db_query.query("update article set ? where unique_id =?", [
-        article_info,
-        article[0].unique_id
+      let info = {
+        content: _.get(article_info, "content"),
+        title: _.get(article_info, "title")
+      };
+      await db_query.query("update content set ? where id =?", [
+        info,
+        _.get(article_info, "id")
       ]);
       return true;
     }

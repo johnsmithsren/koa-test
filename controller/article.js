@@ -29,33 +29,27 @@ module.exports = class Article {
    * 创建留言
    */
 
-  async create_article(article_info, user_unique_id, user_current_level) {
+  async createContent(article_info) {
     let article = new article_model();
-    let user = new user_model();
-    let level = await article.check_user_level(user_unique_id);
-    if (user_current_level != level) {
-      await user.update_user_level(user_unique_id, level);
-    }
-    _.set(article_info, "unique_id", uuidv4());
-    _.set(article_info, "level", level);
-    return await article.create_article(article_info, user_unique_id);
+    _.set(article_info, "uniqueId", uuidv4());
+    return await article.create_article(article_info);
   }
 
-  async delete_article(article_info, user_unique_id) {
+  async deleteContent(article_info) {
     let article = new article_model();
-    return await article.delete_article(article_info, user_unique_id);
+    return await article.deleteContent(article_info);
   }
 
-  async edit_article(article_info, user_unique_id) {
-    let article = new article_model();
-    return await article.edit_article(article_info, user_unique_id);
-  }
+  // async edit_article(article_info) {
+  //   let article = new article_model();
+  //   return await article.edit_article(article_info);
+  // }
 
-  async get_article(article_info, user_unique_id) {
-    let article = new article_model();
-    return await article.get_article(
-      _.get(article_info, "unique_id", ""),
-      user_unique_id
-    );
-  }
+  // async get_article(article_info, user_unique_id) {
+  //   let article = new article_model();
+  //   return await article.get_article(
+  //     _.get(article_info, "unique_id", ""),
+  //     user_unique_id
+  //   );
+  // }
 };
