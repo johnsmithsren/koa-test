@@ -5,6 +5,7 @@ module.exports = function errorHandler() {
     } catch (err) {
       ctx.status = err.statusCode || err.status || 500;
       console.log(err.message);
+      console.log(err.message);
       //   await ctx.render("error", {
       //     title: ctx.status,
       //     msg: err.message
