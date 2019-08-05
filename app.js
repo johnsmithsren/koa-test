@@ -23,8 +23,9 @@ app.use(
     enableTypes: ["json", "form", "text"]
   })
 );
-
+// json 化
 app.use(json());
+// log
 app.use(logger());
 app.use(require("koa-static")(__dirname + "/public"));
 app.use(errorHandle());
