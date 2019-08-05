@@ -1,9 +1,7 @@
 module.exports = function errorHandler() {
   return async (ctx, next) => {
     try {
-      console.log(2);
       await next();
-      console.log(1);
     } catch (err) {
       ctx.status = err.statusCode || err.status || 500;
       console.log(err.message);
