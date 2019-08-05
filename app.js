@@ -28,6 +28,7 @@ app.use(json());
 // log
 app.use(logger());
 app.use(require("koa-static")(__dirname + "/public"));
+// 报错处理
 app.use(errorHandle());
 app.use(
   views(__dirname + "/views", {
