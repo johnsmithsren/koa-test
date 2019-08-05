@@ -38,6 +38,7 @@ app.use(
 // logger
 app.use(async (ctx, next) => {
   const start = new Date();
+  // 打印出 处理所用时间
   await next();
   const ms = new Date() - start;
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
