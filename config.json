@@ -6,7 +6,7 @@
   "env": "dev",
   "port": 3001,
   "host": "127.0.0.1",
-  "user": "renjm",
+  "user": "root",
   "password": "qwe123123",
   "database": "test",
   "secret": "test_koa_vue",
