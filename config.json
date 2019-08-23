@@ -6,16 +6,26 @@
   "env": "dev",
   "port": 3001,
   "host": "127.0.0.1",
-  "user": "root",
-  "password": "qwe123123",
-  "database": "test",
-  "secret": "test_koa_vue",
-  "expires": 36000,
+  "mysqlDB": {
+    "user": "root",
+    "password": "qwe123123",
+    "database": "test",
+    "secret": "test_koa_vue",
+    "expires": 36000
+  },
   "session_key": "koa-react",
-  "redis_port": "6379",
-  "redis_host": "127.0.0.1",
-  "redis_family": 4,
-  "redis_password": "koa-react",
-  "redis_db": 0,
-  "route_port": "3001"
+  "redisDB": {
+    "port": "6381",
+    "host": "35.200.72.124",
+    "family": 4,
+    "db": 0,
+    "password": "qwe123123"
+  },
+  "route_port": "3001",
+  "mongoDB": {
+    "host": "127.0.0.1",
+    "port": "27017",
+    "database": "wonder",
+    "mongoModel": "mongoModel"
+  }
 }

@@ -1,3 +1,9 @@
+/*
+ * @Auther: renjm
+ * @Date: 2018-06-02 16:11:05
+ * @LastEditTime: 2019-08-23 10:08:27
+ * @Description:
+ */
 const Redis = require("ioredis");
 const { Store } = require("koa-session2");
 const config = require("../config.json");
@@ -6,11 +12,11 @@ class RedisStore extends Store {
   constructor() {
     super();
     this.redis = new Redis({
-      port: config.redis_port, // Redis port
-      host: config.redis_host, // Redis host
+      port: config.redisDB.port, // Redis port
+      host: config.redisDB.host, // Redis host
       // family: config.redis_family,           // 4 (IPv4) or 6 (IPv6)
-      password: config.redis_password,
-      db: config.redis_db
+      password: config.redisDB.password,
+      db: config.redisDB.db
     });
   }
 

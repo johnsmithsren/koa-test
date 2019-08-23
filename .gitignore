@@ -37,6 +37,7 @@ config.json
 !model/config.js
 local.json
 log/*
+testdb.js
 # Created by .ignore support plugin (hsz.mobi)
 .idea
 public/data/
