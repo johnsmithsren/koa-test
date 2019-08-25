@@ -1,3 +1,9 @@
+/*
+ * @Auther: renjm
+ * @Date: 2019-08-01 12:41:17
+ * @LastEditTime: 2019-08-25 18:15:48
+ * @Description:
+ */
 const router = require("koa-router")();
 let comicController = require("../controller/comic");
 const _ = require("lodash");
@@ -36,6 +42,19 @@ router.get("/list/top/comic", async (ctx, next) => {
   return;
 });
 
+/**
+ * @description: 创建漫画路径
+ * @param {type}
+ * @return:
+ */
+router.post("/create/pdf", async (ctx, next) => {
+  //   await checkPermission.check(ctx);
+  let comic = new comicController();
+  let comicInfo = ctx.request.body;
+  result = await comic.createComic(comicInfo);
+  ctx.body = result;
+  return;
+});
 // router.post("/create/pdf", async (ctx, next) => {
 //   await checkPermission.check(ctx);
 //   if (_.get(ctx.user_info, "code") || !ctx.user_info) {

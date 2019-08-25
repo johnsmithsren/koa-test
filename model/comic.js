@@ -1,7 +1,7 @@
 /*
  * @Auther: renjm
  * @Date: 2019-08-01 12:57:45
- * @LastEditTime: 2019-08-01 21:58:55
+ * @LastEditTime: 2019-08-25 19:05:05
  * @Description: 漫画信息model部分
  */
 
@@ -27,5 +27,10 @@ module.exports = class article_model {
       "select id,title from comic order by id desc limit 1"
     );
     return topComic;
+  }
+
+  async createComic(info) {
+    let result = db_query.query("insert into comic set ?", [info]);
+    return result;
   }
 };

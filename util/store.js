@@ -1,7 +1,7 @@
 /*
  * @Auther: renjm
  * @Date: 2018-06-02 16:11:05
- * @LastEditTime: 2019-08-23 10:08:27
+ * @LastEditTime: 2019-08-23 10:50:36
  * @Description:
  */
 const Redis = require("ioredis");
@@ -11,9 +11,7 @@ const config = require("../config.json");
 class RedisStore extends Store {
   constructor() {
     super();
-    this.redis = new Redis({
-      port: config.redisDB.port, // Redis port
-      host: config.redisDB.host, // Redis host
+    this.redis = new Redis(config.redisDB.port, config.redisDB.host, {
       // family: config.redis_family,           // 4 (IPv4) or 6 (IPv6)
       password: config.redisDB.password,
       db: config.redisDB.db

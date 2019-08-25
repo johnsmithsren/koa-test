@@ -1,6 +1,7 @@
 {
   "debug": true,
   "name": "测试环境配置",
+  "process": "blog",
   "description": "测试环境配置",
   "version": "0.0.1",
   "env": "dev",
@@ -8,8 +9,9 @@
   "host": "127.0.0.1",
   "mysqlDB": {
     "user": "root",
-    "password": "qwe123123",
-    "database": "test",
+    "host": "35.200.72.124",
+    "password": "123456",
+    "database": "blog",
     "secret": "test_koa_vue",
     "expires": 36000
   },
@@ -18,8 +20,8 @@
     "port": "6381",
     "host": "35.200.72.124",
     "family": 4,
-    "db": 0,
-    "password": "qwe123123"
+    "password": "qwe123123",
+    "db": 0
   },
   "route_port": "3001",
   "mongoDB": {
