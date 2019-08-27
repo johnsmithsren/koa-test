@@ -1,7 +1,7 @@
 /*
  * @Auther: renjm
  * @Date: 2019-08-01 12:51:15
- * @LastEditTime: 2019-08-25 18:13:13
+ * @LastEditTime: 2019-08-27 13:44:28
  * @Description: 获取漫画信息路径
  */
 
@@ -9,15 +9,27 @@
 const _ = require("lodash");
 const comicModel = require("../model/comic");
 const uuidv4 = require("uuid/v4");
+const oss = require("../model/oss")();
 module.exports = class Comic {
   constructor() {}
 
   /**
    * 漫画信息列表
    */
-  async listComic(level) {
+  async listComic() {
     let comic = new comicModel();
-    return await comic.listComic(level);
+    let comicList = await comic.listComic();
+    for (let comic of comicList) {
+      // await oss.putACL(_.get(comic, "path"));
+      let comicUrl = await oss.getUrl(_.get(comic, "path"));
+      _.set(
+        comic,
+        "title",
+        `${_.get(comic, "title")} ${comic.path.split(".")[0]}`
+      );
+      _.set(comic, "path", comicUrl ? comicUrl : "");
+    }
+    return comicList;
   }
 
   /**
@@ -36,5 +48,9 @@ module.exports = class Comic {
   async createComic(info) {
     let comic = new comicModel();
     return await comic.createComic(info);
+  }
+
+  static path(comicPath) {
+    return `blogpdf/${comicPath}`;
   }
 };

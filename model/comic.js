@@ -1,7 +1,7 @@
 /*
  * @Auther: renjm
  * @Date: 2019-08-01 12:57:45
- * @LastEditTime: 2019-08-25 19:05:05
+ * @LastEditTime: 2019-08-26 22:03:08
  * @Description: 漫画信息model部分
  */
 
@@ -15,7 +15,7 @@ module.exports = class article_model {
   /**
    * 获取漫画列表接口
    */
-  async listComic(level) {
+  async listComic() {
     let comicList = db_query.query("select id,title,path from comic limit 10");
     return comicList;
   }
