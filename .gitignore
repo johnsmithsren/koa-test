@@ -47,4 +47,5 @@ public/js/app/common/services/restfulService.js
 
 **/.vscode/
 **/.DS_Store
+*.json
 

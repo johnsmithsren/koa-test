@@ -29,5 +29,11 @@
     "port": "27017",
     "database": "wonder",
     "mongoModel": "mongoModel"
+  },
+  "oss": {
+    "accessKeyId": "LTAItsaQhkKFFpXn",
+    "accessKeySecret": "zewzOh2Au15h11ibtV2HTGOozsNhIP",
+    "bucket": "blogpdf",
+    "region": "oss-cn-shanghai"
   }
 }
