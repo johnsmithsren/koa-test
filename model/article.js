@@ -1,5 +1,8 @@
-/**
- * 用户信息数据库操作
+/*
+ * @Auther: renjm
+ * @Date: 2019-08-28 14:32:04
+ * @LastEditTime: 2019-08-31 19:07:24
+ * @Description: 博客文章内容查询
  * Created by renjm on 2018-5-1.
  */
 "use strict";
@@ -64,7 +67,7 @@ module.exports = class article_model {
     return false;
   }
 
-  async edit_article(article_info) {
+  async editContent(article_info) {
     let article = await db_query.query("select * from  content where id = ?", [
       _.get(article_info, "id", "")
     ]);
@@ -82,10 +85,10 @@ module.exports = class article_model {
     return false;
   }
 
-  async get_article(article_unique_id, user_unique_id) {
+  async getContent(id) {
     let article = await db_query.query(
-      "select * from  article where unique_id = ? and  status=1 and  user_unique_id = ?",
-      [article_unique_id, user_unique_id]
+      "select id,content,title from  content where id = ? ",
+      id
     );
     if (article.length > 0) {
       return article[0];

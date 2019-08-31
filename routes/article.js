@@ -1,3 +1,9 @@
+/*
+ * @Auther: renjm
+ * @Date: 2019-08-28 14:32:04
+ * @LastEditTime: 2019-08-31 19:07:12
+ * @Description:
+ */
 const router = require("koa-router")();
 let article_controller = require("../controller/article");
 const _ = require("lodash");
@@ -58,21 +64,20 @@ router.delete("/delete/content", async (ctx, next) => {
 router.post("/edit/content", async (ctx, next) => {
   let article = new article_controller();
   let article_info = ctx.request.body;
-  result = await article.edit_article(article_info);
+  let result = await article.editContent(article_info);
   ctx.body = result;
   return;
 });
 
-// router.get("/get_article", async (ctx, next) => {
-//   await checkPermission.check(ctx);
-//   if (_.get(ctx.user_info, "code") || !ctx.user_info) {
-//     ctx.body = ctx.user_info;
-//     return;
-//   }
-//   let article = new article_controller();
-//   let article_info = ctx.query;
-//   result = await article.get_article(article_info, ctx.user_info.unique_id);
-//   ctx.body = result;
-//   return;
-// });
+router.get("/get/content", async (ctx, next) => {
+  // if (_.get(ctx.user_info, "code") || !ctx.user_info) {
+  //   ctx.body = ctx.user_info;
+  //   return;
+  // }
+  let article = new article_controller();
+  let article_info = ctx.query;
+  result = await article.getContent(article_info);
+  ctx.body = result;
+  return;
+});
 module.exports = router;

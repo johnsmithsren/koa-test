@@ -1,3 +1,9 @@
+/*
+ * @Auther: renjm
+ * @Date: 2019-08-28 14:32:04
+ * @LastEditTime: 2019-08-31 18:48:55
+ * @Description:
+ */
 const Koa = require("koa");
 const app = new Koa();
 const views = require("koa-views");
@@ -6,7 +12,7 @@ const onerror = require("koa-onerror");
 const bodyparser = require("koa-bodyparser");
 const config = require("./config.json");
 const logger = require("koa-logger");
-const cors = require("koa-cors");
+const cors = require("koa2-cors");
 const fs = require("fs");
 // const index = require('./routes/index')
 const user = require("./routes/user");
@@ -35,7 +41,6 @@ app.use(
     extension: "pug"
   })
 );
-
 // logger
 app.use(async (ctx, next) => {
   const start = new Date();
@@ -44,8 +49,8 @@ app.use(async (ctx, next) => {
   const ms = new Date() - start;
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
 });
-
 app.use(cors());
+
 // routes
 fs.readdirSync(__dirname + "/routes").forEach(file => {
   if (/(\.js)$/.test(file)) {

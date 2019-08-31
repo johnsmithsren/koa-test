@@ -1,10 +1,11 @@
+nvm;
 /*
  * @Auther: renjm
  * @Date: 2019-08-23 14:21:13
  * @LastEditTime: 2019-08-25 19:28:29
  * @Description:
  */
-"use strict";
+("use strict");
 const fs = require("fs");
 const path = require("path");
 const gulp = require("gulp");

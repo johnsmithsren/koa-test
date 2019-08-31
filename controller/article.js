@@ -1,5 +1,8 @@
-/**
- * 文章信息
+/*
+ * @Auther: renjm
+ * @Date: 2019-08-28 14:32:04
+ * @LastEditTime: 2019-08-31 15:20:21
+ * @Description: 博客文章
  * Created by renjm on 2018-5-3
  */
 "use strict";
@@ -40,16 +43,13 @@ module.exports = class Article {
     return await article.deleteContent(article_info);
   }
 
-  // async edit_article(article_info) {
-  //   let article = new article_model();
-  //   return await article.edit_article(article_info);
-  // }
+  async editContent(article_info) {
+    let article = new article_model();
+    return await article.editContent(article_info);
+  }
 
-  // async get_article(article_info, user_unique_id) {
-  //   let article = new article_model();
-  //   return await article.get_article(
-  //     _.get(article_info, "unique_id", ""),
-  //     user_unique_id
-  //   );
-  // }
+  async getContent(article_info) {
+    let article = new article_model();
+    return await article.getContent(_.get(article_info, "id", ""));
+  }
 };
