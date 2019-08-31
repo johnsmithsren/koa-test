@@ -1,7 +1,7 @@
 /*
  * @Auther: renjm
  * @Date: 2019-08-01 12:57:45
- * @LastEditTime: 2019-08-26 22:03:08
+ * @LastEditTime: 2019-08-31 21:52:06
  * @Description: 漫画信息model部分
  */
 
