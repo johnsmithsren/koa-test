@@ -1,7 +1,7 @@
 /*
  * @Auther: renjm
  * @Date: 2019-08-01 12:57:45
- * @LastEditTime: 2019-08-31 21:52:06
+ * @LastEditTime: 2019-09-01 00:03:27
  * @Description: 漫画信息model部分
  */
 
@@ -24,7 +24,7 @@ module.exports = class article_model {
    */
   async listTopComic() {
     let topComic = db_query.query(
-      "select id,title from comic order by id desc limit 1"
+      "select id,title,path from comic order by id desc limit 1"
     );
     return topComic;
   }

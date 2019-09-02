@@ -1,7 +1,7 @@
 /*
  * @Auther: renjm
  * @Date: 2019-08-28 14:32:04
- * @LastEditTime: 2019-08-31 20:06:32
+ * @LastEditTime: 2019-09-02 13:54:29
  * @Description: 博客文章内容查询
  * Created by renjm on 2018-5-1.
  */
@@ -17,7 +17,7 @@ module.exports = class article_model {
    */
   async list_article(level) {
     let articles = db_query.query(
-      "select id,title,content,createTime from content limit 10"
+      "select id,title,content,createTime,contentType from content limit 10"
     );
     return articles;
   }
@@ -87,7 +87,7 @@ module.exports = class article_model {
 
   async getContent(id) {
     let article = await db_query.query(
-      "select id,content,title from  content where id = ? ",
+      "select id,content,title,contentType from  content where id = ? ",
       id
     );
     if (article.length > 0) {
