@@ -1,7 +1,7 @@
 /*
  * @Auther: renjm
  * @Date: 2019-08-28 14:32:04
- * @LastEditTime: 2019-08-31 19:07:12
+ * @LastEditTime: 2019-09-03 21:50:19
  * @Description:
  */
 const router = require("koa-router")();
@@ -17,14 +17,9 @@ const checkPermission = require("../util/check");
  */
 router.get("/list/content", async (ctx, next) => {
   //   await checkPermission.check(ctx);
-  let level = 1;
-  if (_.get(ctx.user_info, "code") || !ctx.user_info) {
-    level = 1;
-  } else {
-    level = ctx.user_info.level;
-  }
+  let { pageSize, page } = ctx.request.query;
   let article = new article_controller();
-  result = await article.list_article(level);
+  result = await article.list_article(pageSize, page);
   ctx.body = result;
   return;
 });

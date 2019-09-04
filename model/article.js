@@ -1,7 +1,7 @@
 /*
  * @Auther: renjm
  * @Date: 2019-08-28 14:32:04
- * @LastEditTime: 2019-09-02 13:54:29
+ * @LastEditTime: 2019-09-04 11:38:38
  * @Description: 博客文章内容查询
  * Created by renjm on 2018-5-1.
  */
@@ -15,9 +15,12 @@ module.exports = class article_model {
   /**
    * 获取用户留言列表接口
    */
-  async list_article(level) {
+  async list_article(page, pageSize) {
+    let start = _.toNumber(page) * _.toNumber(pageSize);
+    let end = (_.toNumber(page) - 1) * _.toNumber(pageSize);
     let articles = db_query.query(
-      "select id,title,content,createTime,contentType from content limit 10"
+      "select id,title,content,createTime,contentType from content order by id asc limit ? offset ?",
+      [_.toNumber(start), _.toNumber(end)]
     );
     return articles;
   }

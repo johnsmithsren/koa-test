@@ -16,9 +16,9 @@ module.exports = class Article {
   /**
    * 用户博客列表
    */
-  async list_article() {
+  async list_article(pageSize, page) {
     let article = new article_model();
-    return await article.list_article();
+    return await article.list_article(pageSize, page);
   }
   /**
    * 用户博客列表
