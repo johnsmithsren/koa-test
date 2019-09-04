@@ -1,7 +1,7 @@
 /*
  * @Auther: renjm
  * @Date: 2019-08-28 14:32:04
- * @LastEditTime: 2019-09-04 11:38:38
+ * @LastEditTime: 2019-09-04 13:11:46
  * @Description: 博客文章内容查询
  * Created by renjm on 2018-5-1.
  */
@@ -19,7 +19,7 @@ module.exports = class article_model {
     let start = _.toNumber(page) * _.toNumber(pageSize);
     let end = (_.toNumber(page) - 1) * _.toNumber(pageSize);
     let articles = db_query.query(
-      "select id,title,content,createTime,contentType from content order by id asc limit ? offset ?",
+      "select (select count(id) from content) as count, id,title,content,createTime,contentType from content order by id asc limit ? offset ?",
       [_.toNumber(start), _.toNumber(end)]
     );
     return articles;
