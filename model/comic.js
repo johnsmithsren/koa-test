@@ -1,7 +1,7 @@
 /*
  * @Auther: renjm
  * @Date: 2019-08-01 12:57:45
- * @LastEditTime: 2019-09-05 13:16:35
+ * @LastEditTime: 2019-09-05 13:26:56
  * @Description: 漫画信息model部分
  */
 
@@ -31,7 +31,7 @@ module.exports = class article_model {
   }
 
   async createComic(info) {
-    let result = await Sequelize.models.content.findOne({
+    let result = await Sequelize.models.comic.findOne({
       where: {
         path: _.get(info, "path")
       }
