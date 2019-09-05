@@ -1,7 +1,7 @@
 /*
  * @Auther: renjm
  * @Date: 2019-08-01 12:51:15
- * @LastEditTime: 2019-09-05 11:54:16
+ * @LastEditTime: 2019-09-05 12:47:44
  * @Description: 获取漫画信息路径
  */
 
@@ -25,7 +25,10 @@ module.exports = class Comic {
       _.set(
         comic,
         "title",
-        `${_.get(comic, "title")} ${comic.path.split(".")[0]}`
+        `${_.get(comic, "title")} ${_.get(
+          _.split(comic.path.split(".")[0], "/"),
+          "2"
+        )}`
       );
       _.set(comic, "path", comicUrl ? comicUrl : "");
     }

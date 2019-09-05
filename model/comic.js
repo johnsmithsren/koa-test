@@ -1,7 +1,7 @@
 /*
  * @Auther: renjm
  * @Date: 2019-08-01 12:57:45
- * @LastEditTime: 2019-09-01 00:03:27
+ * @LastEditTime: 2019-09-05 13:16:35
  * @Description: 漫画信息model部分
  */
 
@@ -9,6 +9,7 @@
 const _ = require("lodash");
 const db_query = require("../model/db");
 const util = require("utility");
+const Sequelize = require("./mysqlModel/index").sequelize;
 module.exports = class article_model {
   constructor() {}
 
@@ -30,7 +31,14 @@ module.exports = class article_model {
   }
 
   async createComic(info) {
-    let result = db_query.query("insert into comic set ?", [info]);
+    let result = await Sequelize.models.content.findOne({
+      where: {
+        path: _.get(info, "path")
+      }
+    });
+    if (!result) {
+      result = db_query.query("insert into comic set ?", [info]);
+    }
     return result;
   }
 };
