@@ -1,7 +1,7 @@
 /*
  * @Auther: renjm
  * @Date: 2019-08-26 21:37:05
- * @LastEditTime: 2019-08-26 22:53:21
+ * @LastEditTime: 2019-09-05 14:17:25
  * @Description:
  */
 const oss = require("ali-oss");
@@ -46,7 +46,9 @@ class Oss {
    */
   async getUrl(path) {
     try {
-      const url = await this.store.generateObjectUrl(path);
+      const url = await this.store.signatureUrl(path, {
+        expires: 3600
+      });
       return url;
     } catch (error) {
       throw `获取文件url异常`;
