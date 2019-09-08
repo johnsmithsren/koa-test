@@ -1,7 +1,7 @@
 /*
  * @Auther: renjm
  * @Date: 2019-09-04 15:58:48
- * @LastEditTime: 2019-09-04 17:22:19
+ * @LastEditTime: 2019-09-07 09:34:48
  * @Description:
  */
 
@@ -14,10 +14,6 @@ const Sequelize = require("sequelize");
  */
 
 module.exports = {
-  id: {
-    type: Sequelize.STRING(50),
-    primaryKey: true
-  },
   title: Sequelize.STRING(64),
   path: Sequelize.TEXT
 };

@@ -1,34 +1,20 @@
-const router = require('koa-router')()
-const user_controller = require('../controller/user')
-const _ = require('lodash')
-const error = require('../util/error')
-const checkPermission = require('../util/check')
+/*
+ * @Auther: renjm
+ * @Date: 2018-05-02 11:43:44
+ * @LastEditTime: 2019-09-07 09:39:31
+ * @Description: 用户信息处理
+ */
+const router = require("koa-router")();
+const user_controller = require("../controller/user");
+const _ = require("lodash");
+const error = require("../util/error");
 // router.prefix('/users')
 
+router.get("/create/user", async (ctx, next) => {
+  let user = new user_controller();
+  let userInfo = ctx.request.query;
+  result = await user.create_user(userInfo, ctx);
+  return;
+});
 
-
-router.get('/get_user', async (ctx, next) => {
-    await checkPermission.check(ctx)
-    ctx.body = ctx.user_info
-    return
-})
-
-router.get('/list_user', async (ctx, next) => {
-    let user = new user_controller()
-    let token = _.get(ctx.header, "token", false)
-    ctx.body = await user.list_user(token)
-
-    return
-})
-
-
-// 用户注册接口
-// mock/usercenter/user/register
-router.post('/mock/usercenter/user/register', async (ctx, next) => {
-    let user_info = ctx.request.body
-    let user = new user_controller()
-    await user.create_user(user_info, ctx)
-    return
-})
-
-module.exports = router
+module.exports = router;

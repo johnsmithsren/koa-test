@@ -1,7 +1,7 @@
 /*
  * @Auther: renjm
  * @Date: 2019-08-28 14:32:04
- * @LastEditTime: 2019-09-03 21:50:19
+ * @LastEditTime: 2019-09-08 09:57:34
  * @Description:
  */
 const router = require("koa-router")();
@@ -39,6 +39,9 @@ router.get("/list/top/content", async (ctx, next) => {
 router.post("/create/content", async (ctx, next) => {
   let article = new article_controller();
   let article_info = ctx.request.body;
+  _.assign(article_info, {
+    username: _.get(ctx.request, "user.username")
+  });
   let result = await article.createContent(article_info);
   ctx.body = result;
   return;
@@ -59,6 +62,9 @@ router.delete("/delete/content", async (ctx, next) => {
 router.post("/edit/content", async (ctx, next) => {
   let article = new article_controller();
   let article_info = ctx.request.body;
+  _.assign(article_info, {
+    username: _.get(ctx.request, "user.username")
+  });
   let result = await article.editContent(article_info);
   ctx.body = result;
   return;

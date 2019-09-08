@@ -1,7 +1,7 @@
 /*
  * @Auther: renjm
  * @Date: 2019-08-28 14:32:04
- * @LastEditTime: 2019-08-31 18:48:55
+ * @LastEditTime: 2019-09-08 09:44:20
  * @Description:
  */
 const Koa = require("koa");
@@ -19,6 +19,7 @@ const user = require("./routes/user");
 // const session = require("koa-session2");
 // const Store = require("./util/store.js");
 const errorHandle = require("./middlewares/errorHandle");
+const authHandle = require("./middlewares/authHandle");
 
 // error handler
 onerror(app);
@@ -36,6 +37,9 @@ app.use(logger());
 app.use(require("koa-static")(__dirname + "/public"));
 // 报错处理
 app.use(errorHandle());
+
+// 鉴权处理
+app.use(authHandle());
 app.use(
   views(__dirname + "/views", {
     extension: "pug"

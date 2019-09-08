@@ -1,7 +1,7 @@
 /*
  * @Auther: renjm
  * @Date: 2019-09-04 16:06:29
- * @LastEditTime: 2019-09-05 11:26:21
+ * @LastEditTime: 2019-09-06 20:27:28
  * @Description: sequalize 数据库类
  */
 
@@ -14,6 +14,10 @@ const modelObject = [
   {
     name: "comic",
     defineObject: require("./comic")
+  },
+  {
+    name: "user",
+    defineObject: require("./user")
   }
 ];
 

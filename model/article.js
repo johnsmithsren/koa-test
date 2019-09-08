@@ -1,7 +1,7 @@
 /*
  * @Auther: renjm
  * @Date: 2019-08-28 14:32:04
- * @LastEditTime: 2019-09-05 13:16:05
+ * @LastEditTime: 2019-09-08 10:16:06
  * @Description: 博客文章内容查询
  * Created by renjm on 2018-5-1.
  */
@@ -76,12 +76,8 @@ module.exports = class article_model {
       }
     });
     if (article) {
-      let info = {
-        content: _.get(article_info, "content"),
-        title: _.get(article_info, "title")
-      };
       await Sequelize.models.content.update(
-        _.assign(info, { updateTime: moment().unix() }),
+        _.assign(article_info, { updateTime: moment().unix() }),
         {
           where: {
             id: _.get(article_info, "id")
