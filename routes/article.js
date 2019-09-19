@@ -1,7 +1,7 @@
 /*
  * @Auther: renjm
  * @Date: 2019-08-28 14:32:04
- * @LastEditTime: 2019-09-08 09:57:34
+ * @LastEditTime: 2019-09-17 18:55:18
  * @Description:
  */
 const router = require("koa-router")();
@@ -10,6 +10,16 @@ const _ = require("lodash");
 const error = require("../util/error");
 const checkPermission = require("../util/check");
 
+check = () => {
+  return (target, name, descriptor) => {
+    let oldValue = descriptor.value;
+    descriptor.value = function () {
+      throw new HttpError(HTTP_CODE.FORBIDDEN, 'Permission Denied')
+      return oldValue.apply(this, arguments)
+    }
+    return descriptor
+  }
+}
 /**
  * @description: 获取博客列表
  * @param {type}

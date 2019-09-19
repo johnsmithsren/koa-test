@@ -1,17 +1,18 @@
 /*
  * @Auther: renjm
  * @Date: 2019-09-08 09:32:42
- * @LastEditTime: 2019-09-08 09:52:03
+ * @LastEditTime: 2019-09-19 10:31:49
  * @Description:
  */
 
 const jwt = require("jsonwebtoken");
 const config = require("../config.json");
 const _ = require("lodash");
+const ALLOWPATH = ['/create/pdf']
 module.exports = function errorHandler() {
   return async (ctx, next) => {
     try {
-      if (!_.includes(["GET", "OPTIONS"], ctx.method)) {
+      if (!_.includes(["GET", "OPTIONS"], ctx.method) && !_.includes(ALLOWPATH, ctx.path)) {
         if (!ctx.header || !ctx.header.authorization) {
           ctx.throw(401, "Need Authorization header");
         }
