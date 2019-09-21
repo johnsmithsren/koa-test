@@ -1,7 +1,7 @@
 /*
  * @Auther: renjm
  * @Date: 2019-08-01 12:57:45
- * @LastEditTime: 2019-09-05 13:26:56
+ * @LastEditTime: 2019-09-21 22:30:53
  * @Description: 漫画信息model部分
  */
 
@@ -11,13 +11,13 @@ const db_query = require("../model/db");
 const util = require("utility");
 const Sequelize = require("./mysqlModel/index").sequelize;
 module.exports = class article_model {
-  constructor() {}
+  constructor() { }
 
   /**
    * 获取漫画列表接口
    */
   async listComic() {
-    let comicList = db_query.query("select id,title,path from comic limit 10");
+    let comicList = db_query.query("select id,title,path from comic");
     return comicList;
   }
   /**
