@@ -1,7 +1,7 @@
 /*
  * @Auther: renjm
  * @Date: 2019-08-28 14:32:04
- * @LastEditTime: 2019-09-08 10:16:06
+ * @LastEditTime: 2019-09-22 10:03:29
  * @Description: 博客文章内容查询
  * Created by renjm on 2018-5-1.
  */
@@ -12,21 +12,20 @@ const util = require("utility");
 const Sequelize = require("./mysqlModel/index").sequelize;
 const moment = require("moment");
 module.exports = class article_model {
-  constructor() {}
+  constructor() { }
 
   /**
    * 获取用户留言列表接口
    */
   async list_article(page, pageSize) {
-    let start = _.toNumber(page) * _.toNumber(pageSize);
-    let end = (_.toNumber(page) - 1) * _.toNumber(pageSize);
-    // let articles = db_query.query(
-    //   "select (select count(id) from content) as count, id,title,content,createTime,contentType from content order by id asc limit ? offset ?",
-    //   [_.toNumber(start), _.toNumber(end)]
-    // );
+    let offset = _.toNumber(page) * _.toNumber(pageSize);
+    let limit = _.toNumber(page) * _.toNumber(pageSize);
+    if (_.toNumber(page) > 1) {
+      limit = (_.toNumber(page) - 1) * _.toNumber(pageSize);
+    }
     let contentInfo = await Sequelize.models.content.findAndCountAll({
-      limit: _.toNumber(start),
-      offset: _.toNumber(end)
+      limit: _.toNumber(limit),
+      offset: _.toNumber(offset)
     });
     return contentInfo;
   }
