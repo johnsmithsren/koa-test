@@ -1,7 +1,7 @@
 /*
  * @Auther: renjm
  * @Date: 2019-08-01 12:51:15
- * @LastEditTime: 2019-09-05 12:47:44
+ * @LastEditTime: 2019-09-29 10:12:22
  * @Description: 获取漫画信息路径
  */
 
@@ -11,7 +11,7 @@ const comicModel = require("../model/comic");
 const uuidv4 = require("uuid/v4");
 const oss = require("../model/oss")();
 module.exports = class Comic {
-  constructor() {}
+  constructor() { }
 
   /**
    * 漫画信息列表
